@@ -33,7 +33,8 @@ public class SpaceBattle : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
-        
+        //Debug.Log(sphere.transform.rotation);
+        //sphere.transform.rotation = new Quaternion(1, 0, 0, 0) * Time.deltaTime;
 	}
 
 
@@ -51,7 +52,7 @@ public class SpaceBattle : MonoBehaviour {
         //Creating asteroid field
         for (int xfor = 0; xfor <= maxAsteroids; xfor++)
         {
-            asteroidPos = new Vector3(Random.Range(-60, 60), Random.Range(-60, 60), Random.Range(-100, 100));
+            asteroidPos = new Vector3(Random.Range(-100, 100), Random.Range(-100, 100), Random.Range(-100, 100));
             Instantiate(sphere, asteroidPos, Quaternion.identity);
             sphere.transform.localScale = new Vector3(Random.Range(1, 5), Random.Range(1, 5), Random.Range(1, 5));
             asteroidCount++;
