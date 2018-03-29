@@ -8,6 +8,7 @@ public class Path : MonoBehaviour
     public List<Vector3> waypoints = new List<Vector3>();
     public int next = 0;
     public Vector3 nextWaypoint;
+    public bool looping = true;
 
     // Use this for initialization
     void Start()
@@ -19,14 +20,15 @@ public class Path : MonoBehaviour
 
         for(int i = 0; i < count; i ++)
         {
-            waypoints.Add(transform.GetChild(i).position);
+            waypoints.Add(transform.GetChild(i).position); //Adding all waypoints to list
         }
     }
 
     void Update()
     {
-        nextWaypoint = waypoints[next];
+        nextWaypoint = waypoints[next]; //Get next waypoint from list
     }
+
 
     public void OnDrawGizmos()
     {
@@ -41,19 +43,23 @@ public class Path : MonoBehaviour
         }
     }
 
-    /*
-    public Vector3 nextWaypoint()
+    public bool lastWaypoint()
     {
-        return waypoints[next];
+        return next == waypoints.Count - 1;
     }
-    */
-    public void MoveToNext()
-    {
-        next = (next + 1) % waypoints.Count;
 
-        if(next != waypoints.Count - 1)
+    public void SelectNext()
+    {
+        if (looping)
         {
-            next++;
+            next = (next + 1) % waypoints.Count;
+        }
+        else
+        {
+            if (next != waypoints.Count - 1)
+            {
+                next++;
+            }
         }
     }
 }
