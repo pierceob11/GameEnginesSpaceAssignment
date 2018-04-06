@@ -51,11 +51,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Arrive.cs" />
      <Compile Include="Assets\Scripts\Boid.cs" />
-     <Compile Include="Assets\Scripts\ChaserGizmo.cs" />
      <Compile Include="Assets\Scripts\CreateAsteroids.cs" />
-     <Compile Include="Assets\Scripts\followPath.cs" />
+     <Compile Include="Assets\Scripts\Flee.cs" />
+     <Compile Include="Assets\Scripts\FollowPath.cs" />
+     <Compile Include="Assets\Scripts\MovementManager.cs" />
      <Compile Include="Assets\Scripts\Path.cs" />
+     <Compile Include="Assets\Scripts\Seek.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

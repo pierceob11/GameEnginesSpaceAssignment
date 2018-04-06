@@ -21,8 +21,7 @@ GameObject:
   - component: {fileID: 4102556779409206}
   - component: {fileID: 33784446540399400}
   - component: {fileID: 23326782685266034}
-  - component: {fileID: 114039722421464190}
-  - component: {fileID: 114096350164597330}
+  - component: {fileID: 114052802301876446}
   m_Layer: 0
   m_Name: SF_Free-Fighter
   m_TagString: Target
@@ -159,7 +158,7 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1552732658274190}
   m_Enabled: 1
---- !u!114 &114039722421464190
+--- !u!114 &114052802301876446
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -170,24 +169,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dbbcf539a6b13448bb3d4bf235c422b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followPathScript: {fileID: 114096350164597330}
+  target: {fileID: 0}
+  maxSpeed: 10
+  arrivalRadius: 10
+  fleeRadius: 5
   velocity: {x: 0, y: 0, z: 0}
   acceleration: {x: 0, y: 0, z: 0}
   force: {x: 0, y: 0, z: 0}
---- !u!114 &114096350164597330
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1053517773210830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3798ee047be89cf4a8e74108ff4fafdc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathScript: {fileID: 0}
-  boidScript: {fileID: 114039722421464190}
-  newWaypoint: {x: 0, y: 0, z: 0}
 --- !u!124 &124363962020628528
 Behaviour:
   m_ObjectHideFlags: 1

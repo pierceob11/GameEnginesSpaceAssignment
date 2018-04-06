@@ -7,7 +7,6 @@ public class Path : MonoBehaviour
 
     public List<Vector3> waypoints = new List<Vector3>();
     public int next = 0;
-    public Vector3 nextWaypoint;
     public bool looping = true;
 
     // Use this for initialization
@@ -26,7 +25,12 @@ public class Path : MonoBehaviour
 
     void Update()
     {
-        nextWaypoint = waypoints[next]; //Get next waypoint from list
+        //nextWaypoint = waypoints[next]; //Get next waypoint from list
+    }
+
+    public Vector3 nextWaypoint()
+    {
+        return waypoints[next];
     }
 
 

@@ -2,65 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class followPath : MonoBehaviour
-{
+public class FollowPath : MovementManager {
 
     public Path pathScript;
-    public Boid boidScript;
-    public Vector3 newWaypoint;
-    float minDistance = 250.0f;
-    float rotationalDamp = 0.5f;
-    //float detectionDistance = 20.0f;
+    public Vector3 targetWaypoint;
+    float nearEnough = 200.0f;
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
     public void OnDrawGizmos()
     {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawLine(transform.position, pathScript.nextWaypoint);
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawLine(transform.position, targetWaypoint);
     }
 
-
-    public void NextWaypoint()
+    
+    public override Vector3 CalculateForce()
     {
-        newWaypoint = pathScript.nextWaypoint;
-        if ((transform.position - newWaypoint).sqrMagnitude <= minDistance)
+        targetWaypoint = pathScript.nextWaypoint();
+
+        if((transform.position - targetWaypoint).sqrMagnitude <= nearEnough)
         {
             pathScript.SelectNext();
         }
+
+        return boidScript.Seeking(targetWaypoint);
     }
-
-    public void TurntoFace() //Was originally a void and final line was the commented out one
-    {
-        Vector3 turn = newWaypoint - transform.position;
-        Quaternion rotation = Quaternion.LookRotation(turn);
-        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, rotationalDamp * Time.deltaTime);
-    }
-
-    /*
-    public Vector3 Movement() // This function will replace FollowPath
-    {
-        /*
-        if(!pathScript.looping && pathScript.lastWaypoint())
-        {
-            //return boid arrive force
-        }
-        
-        //
-        return boidScript.Seeking(newWaypoint);
-    }
-*/
-
-
-    void Update()
-    {
-        NextWaypoint();
-       // TurntoFace();
-    }
-}
-
     
+	// Update is called once per frame
+	void Update () {
+		
+	}
+}
