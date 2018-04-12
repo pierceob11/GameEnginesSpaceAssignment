@@ -54,10 +54,14 @@
      <Compile Include="Assets\Scripts\Arrive.cs" />
      <Compile Include="Assets\Scripts\Boid.cs" />
      <Compile Include="Assets\Scripts\CreateAsteroids.cs" />
+     <Compile Include="Assets\Scripts\Evade.cs" />
      <Compile Include="Assets\Scripts\Flee.cs" />
      <Compile Include="Assets\Scripts\FollowPath.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\MovementManager.cs" />
+     <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
      <Compile Include="Assets\Scripts\Path.cs" />
+     <Compile Include="Assets\Scripts\Pursue.cs" />
      <Compile Include="Assets\Scripts\Seek.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

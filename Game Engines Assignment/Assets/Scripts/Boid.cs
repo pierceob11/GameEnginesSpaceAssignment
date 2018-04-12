@@ -58,7 +58,7 @@ public class Boid : MonoBehaviour {
         {
             desiredVelocity.Normalize();
             desiredVelocity *= maxSpeed;
-            Vector3 steering = velocity - desiredVelocity; //This line may need to be velocity - deisred?
+            Vector3 steering = desiredVelocity - velocity; //This line may need to be velocity - deisred?
             steering = steering / mass;
             return steering;
         }
