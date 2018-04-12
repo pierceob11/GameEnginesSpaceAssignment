@@ -15,8 +15,11 @@ public class FollowPath : MovementManager {
 	
     public void OnDrawGizmos()
     {
-        Gizmos.color = Color.magenta;
-        Gizmos.DrawLine(transform.position, targetWaypoint);
+        if (isActiveAndEnabled)
+        {
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawLine(transform.position, targetWaypoint);
+        }
     }
 
     

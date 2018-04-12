@@ -60,6 +60,8 @@
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\MovementManager.cs" />
      <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
+     <Compile Include="Assets\Scripts\ObjectRotate.cs" />
+     <Compile Include="Assets\Scripts\ObstacleAvoidance.cs" />
      <Compile Include="Assets\Scripts\Path.cs" />
      <Compile Include="Assets\Scripts\Pursue.cs" />
      <Compile Include="Assets\Scripts\Seek.cs" />

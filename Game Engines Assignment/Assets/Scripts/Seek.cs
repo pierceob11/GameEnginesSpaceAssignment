@@ -15,8 +15,11 @@ public class Seek : MovementManager {
 
     public void OnDrawGizmos()
     {
-        Gizmos.color = Color.gray;
-        Gizmos.DrawLine(transform.position, seekTarget);
+        if (isActiveAndEnabled)
+        {
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawLine(transform.position, seekTarget);
+        }
     }
 
     public override Vector3 CalculateForce()
