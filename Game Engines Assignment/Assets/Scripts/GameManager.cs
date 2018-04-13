@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour {
     AudioSource audioSource;
     public AudioClip Go;
     public AudioClip AsteroidFieldClip;
-    //public AudioClip Go;
+    public AudioClip DalyBeginsChase;
     //public AudioClip Go;
     //public AudioClip Go;
     //public AudioClip Go;
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour {
         ussCallister.GetComponent<FollowPath>().enabled = true;
 
 
-        yield return new WaitForSeconds(12); //Wait so audio clip is not cut off
+        yield return new WaitForSeconds(12); //Wait for audio to finish
 
         //Next scene
 
@@ -74,6 +74,44 @@ public class GameManager : MonoBehaviour {
         //Asteroid field camera
         UssCallisterCamFront.gameObject.SetActive(false);
         asteroidBeltCam.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(12); //Wait for audio to finish
+
+        //Next Scene
+
+        //Select clip
+        audioSource.clip = DalyBeginsChase;
+        audioSource.Play(); //Play clip
+
+
+        //Camera Chaser front
+        asteroidBeltCam.gameObject.SetActive(false);
+        ChaserCamFront.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(11); //Wait for audio
+
+        //Wormhole Camera
+        ChaserCamFront.gameObject.SetActive(false);
+        wormholeCam.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(5); //Wait for audio
+
+        //Camera Chaser front
+        wormholeCam.gameObject.SetActive(false);
+        ChaserCamFront.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(8);
+        
+        //Enable pursue
+        chaser.GetComponent<Pursue>().enabled = true;
+
+        //Camera Chaser Back
+        ChaserCamFront.gameObject.SetActive(false);
+        ChaserCamBack.gameObject.SetActive(true);
+
+
+        //Next Scene
+
     }
 
   

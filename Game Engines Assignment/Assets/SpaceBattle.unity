@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 92953498}
   - component: {fileID: 92953501}
   - component: {fileID: 92953500}
+  - component: {fileID: 92953499}
   m_Layer: 0
   m_Name: Camera (Wormhole)
   m_TagString: Untagged
@@ -143,6 +144,13 @@ Transform:
   m_Father: {fileID: 2089279471}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -0.93000007, y: -528.362, z: -0.010000001}
+--- !u!81 &92953499
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 92953497}
+  m_Enabled: 1
 --- !u!124 &92953500
 Behaviour:
   m_ObjectHideFlags: 0
@@ -563,6 +571,11 @@ Prefab:
       propertyPath: asteroidBeltCam
       value: 
       objectReference: {fileID: 727882825}
+    - target: {fileID: 114108711365733628, guid: bb75d8fca9329f743a9eb09edf5c7e63,
+        type: 2}
+      propertyPath: DalyBeginsChase
+      value: 
+      objectReference: {fileID: 8300000, guid: 80db902c6305cd0469e8cfa0e83a5ed1, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb75d8fca9329f743a9eb09edf5c7e63, type: 2}
   m_IsPrefabParent: 0
@@ -940,6 +953,7 @@ GameObject:
   - component: {fileID: 1394276778}
   - component: {fileID: 1394276781}
   - component: {fileID: 1394276780}
+  - component: {fileID: 1394276779}
   m_Layer: 0
   m_Name: Chaser camera (Front)
   m_TagString: Untagged
@@ -961,6 +975,13 @@ Transform:
   m_Father: {fileID: 215301175}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 10.214001, y: 184.206, z: -0.90400004}
+--- !u!81 &1394276779
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1394276777}
+  m_Enabled: 1
 --- !u!124 &1394276780
 Behaviour:
   m_ObjectHideFlags: 0
@@ -1092,6 +1113,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: -19.748001, z: 0}
+--- !u!1 &1765055871 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1887704759486624, guid: 2da15d03dd17f9049bedd8f2b6a6eecb,
+    type: 2}
+  m_PrefabInternal: {fileID: 121520778}
+--- !u!81 &1765055874
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1765055871}
+  m_Enabled: 1
 --- !u!1001 &1811235739
 Prefab:
   m_ObjectHideFlags: 0
@@ -1113,19 +1146,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4102556779409206, guid: e2422cbb92714bd4989857205bd5073c, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.10374922
       objectReference: {fileID: 0}
     - target: {fileID: 4102556779409206, guid: e2422cbb92714bd4989857205bd5073c, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.12120167
       objectReference: {fileID: 0}
     - target: {fileID: 4102556779409206, guid: e2422cbb92714bd4989857205bd5073c, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.012738796
       objectReference: {fileID: 0}
     - target: {fileID: 4102556779409206, guid: e2422cbb92714bd4989857205bd5073c, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.98710895
       objectReference: {fileID: 0}
     - target: {fileID: 4102556779409206, guid: e2422cbb92714bd4989857205bd5073c, type: 2}
       propertyPath: m_RootOrder
@@ -1150,6 +1183,14 @@ Prefab:
       propertyPath: targetObj
       value: 
       objectReference: {fileID: 2089279468}
+    - target: {fileID: 4102556779409206, guid: e2422cbb92714bd4989857205bd5073c, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4102556779409206, guid: e2422cbb92714bd4989857205bd5073c, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 14
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 81396629622834178, guid: e2422cbb92714bd4989857205bd5073c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e2422cbb92714bd4989857205bd5073c, type: 2}
