@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 4996216210708146}
   - component: {fileID: 20855051577782552}
   - component: {fileID: 124314482216481046}
-  - component: {fileID: 81396629622834178}
+  - component: {fileID: 81524272783322692}
   m_Layer: 0
   m_Name: Front Cam (Uss Callister)
   m_TagString: Untagged
@@ -74,15 +74,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1053517773210830}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.2, y: 0, z: -592.7}
+  m_LocalRotation: {x: -0.10374922, y: 0.12120167, z: 0.012738796, w: 0.98710895}
+  m_LocalPosition: {x: -30.2, y: 0, z: -474.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4216324692962634}
   - {fileID: 4996216210708146}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -12, y: 14, z: 0}
 --- !u!4 &4216324692962634
 Transform:
   m_ObjectHideFlags: 1
@@ -222,7 +222,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1053517773210830}
   m_Mesh: {fileID: 4300000, guid: a2b9f16335cfda74081507453d1466ee, type: 3}
---- !u!81 &81396629622834178
+--- !u!81 &81524272783322692
 AudioListener:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FollowPath : MovementManager {
 
-    public Path pathScript;
+    public PathCreate pathScript;
     public Vector3 targetWaypoint;
     float nearEnough = 200.0f;
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Boid : MonoBehaviour {
 
-    List<MovementManager> behaviours = new List<MovementManager>();
+    List<MovementManager> movements = new List<MovementManager>();
 
     public float maxSpeed = 10.0f;
     float mass = 1.0f;
@@ -20,11 +20,12 @@ public class Boid : MonoBehaviour {
 	void Start () //BC
     {
 
-        MovementManager[] behaviours = GetComponents<MovementManager>();
+        MovementManager[] movements = GetComponents<MovementManager>();
 
-        foreach (MovementManager b in behaviours)
+        foreach (MovementManager m in movements)
         {
-            this.behaviours.Add(b);
+            this.movements.Add(m);
+            Debug.Log(m);
         }
 	}
        
@@ -90,11 +91,11 @@ public class Boid : MonoBehaviour {
    {
        force = Vector3.zero;
 
-       foreach (MovementManager b in behaviours)
+       foreach (MovementManager m in movements)
        {
-           if (b.isActiveAndEnabled)
+           if (m.isActiveAndEnabled)
            {
-               force += b.CalculateForce() * b.weight;
+               force += m.CalculateForce() * m.weight;
            }
        }
 

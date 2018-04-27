@@ -40,7 +40,7 @@ public class CreateAsteroids : MonoBehaviour {
         //Creating asteroid field
         for (int xfor = 0; xfor <= maxAsteroids; xfor++)
         {
-            asteroidPos = new Vector3(Random.Range(0, 1000), Random.Range(-100, 100), Random.Range(0, 2000));
+            asteroidPos = new Vector3(Random.Range(0, 1000), Random.Range(-100, 100), Random.Range(1000, 2000));
             Instantiate(sphere, asteroidPos, Quaternion.identity);
             sphere.transform.localScale = new Vector3(Random.Range(3, 10), Random.Range(3, 10), Random.Range(3, 10));
             asteroidCount++;

@@ -5,9 +5,11 @@ using UnityEngine;
 public class ObjectRotate : MonoBehaviour {
 
     public float RotSpeed = 1.5f;
+    Vector3 random;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 		
 	}
 	
