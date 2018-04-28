@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class ObstacleAvoidance : MovementManager {
 
-    [SerializeField]
-    float rayCastOffset = 5.0f;
-    float detectionDistance = 50.0f;
+    
+     public float rayCastOffset = 5.0f;
+    float detectionDistance = 40.0f;
+    public float avoidFactor = 0.3f;
 
     public override Vector3 CalculateForce()
     {
         RaycastHit hit;
         Vector3 avoidanceForce = Vector3.zero;
-        //float avoidFactor = 0.3f;
+
 
         Vector3 left = transform.position - transform.right * rayCastOffset;
         Vector3 right = transform.position + transform.right * rayCastOffset;
@@ -45,7 +46,15 @@ public class ObstacleAvoidance : MovementManager {
             Debug.Log("Ray hit");
         }
 
-        return avoidanceForce;
+       
+        if(avoidanceForce != Vector3.zero)
+        {
+            return avoidanceForce *= avoidFactor;
+        }
+        else
+        {
+            return Vector3.zero;
+        }
 
     }
 
