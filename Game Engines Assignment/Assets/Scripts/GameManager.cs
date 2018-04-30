@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
+    //Materials
+    public Material ussCallisterSkybx;
+    public Material solidSkybox;
+
+
     //GameObjects
     public GameObject ussCallister;
     public GameObject chaser;
     public GameObject wormhole;
+    public GameObject asteroidField;
+    public GameObject directionalLight;
 
     //Audio components
     AudioSource audioSource;
@@ -18,6 +25,7 @@ public class GameManager : MonoBehaviour {
     public AudioClip TheChaseIsOn;
     public AudioClip FuckingBiblical;
     public AudioClip powerBack;
+    public AudioClip exitFuckingGame;
 
     //Cameras
     public Camera UssCallisterCamBack;
@@ -45,7 +53,6 @@ public class GameManager : MonoBehaviour {
         chaser.GetComponent<Pursue>().enabled = false; //Chaser will not move
         ussCallister.GetComponent<FollowPath>().enabled = false; //Boid will not move
 
-
         audioSource.clip = Go; //Select audio clip "Just fucking go"
         audioSource.Play(); //Play audio clip 
         Debug.Log("Playing Go clip");
@@ -55,7 +62,7 @@ public class GameManager : MonoBehaviour {
         ussCallister.GetComponent<FollowPath>().enabled = true;
 
 
-        yield return new WaitForSeconds(12); //Wait for audio to finish
+        yield return new WaitForSeconds(10); //Wait for audio to finish
 
         //Scene - Asteroid Field
 
@@ -78,7 +85,13 @@ public class GameManager : MonoBehaviour {
         UssCallisterCamFront.gameObject.SetActive(false);
         asteroidBeltCam.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(12); //Wait for audio to finish
+        yield return new WaitForSeconds(4); //Point to path
+
+        //Back to ship cam
+        asteroidBeltCam.gameObject.SetActive(false);
+        UssCallisterCamFront.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(8); //Wait for audio to finish
 
         //Scene - Through The belt
 
@@ -132,10 +145,17 @@ public class GameManager : MonoBehaviour {
         wormholeCam.gameObject.SetActive(false);
         ChaserCamFront.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(8);
-        
+        yield return new WaitForSeconds(1); //8
+
+        //Chaser cam zoom
+        ChaserCamFront.fieldOfView = 15.0f;
+
+        yield return new WaitForSeconds(6);
+
         //Enable pursue
         chaser.GetComponent<Pursue>().enabled = true;
+        //REset FOV
+        ChaserCamFront.fieldOfView = 39.0f;
 
         //Camera Chaser Back
         ChaserCamFront.gameObject.SetActive(false);
@@ -278,7 +298,151 @@ public class GameManager : MonoBehaviour {
         UssCallisterCamBack.gameObject.SetActive(false);
         ChaserCamBack.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(5); //GOD DAMNIT
+        yield return new WaitForSeconds(2); //GOD DAMNIT
+
+        Destroy(ussCallister.gameObject);
+        //Instantiate warp/explosion
+
+
+        //Scene - Exit fucking game
+        //Get audio
+        audioSource.clip = exitFuckingGame;
+        audioSource.Play();
+
+        //Chaser front
+        ChaserCamBack.gameObject.SetActive(false);
+        ChaserCamFront.gameObject.SetActive(true);
+
+        //Wait to flicker
+        yield return new WaitForSeconds(3);
+
+        //SKYBOX FLICKERING
+
+        //Flicker 1
+        //SKybox flicker
+        RenderSettings.skybox = solidSkybox;
+
+        //Wait to flicker
+        yield return new WaitForSeconds(0.2f);
+
+        //Flicker skybox on 
+        RenderSettings.skybox = ussCallisterSkybx;
+        directionalLight.gameObject.GetComponent<Light>().intensity = 0.9f;
+
+        //Zoom out
+        //Zoom out from Daly
+        ChaserCamFront.gameObject.GetComponent<Camera>().fieldOfView = 43.0f;
+
+        //Wait
+        yield return new WaitForSeconds(1);
+
+        //Flicker 2
+        //SKybox flicker
+        RenderSettings.skybox = solidSkybox;
+        directionalLight.gameObject.GetComponent<Light>().intensity = 0.8f;
+
+        //Wait to flicker
+        yield return new WaitForSeconds(0.2f);
+
+        //Flicker skybox on 
+        RenderSettings.skybox = ussCallisterSkybx;
+        directionalLight.gameObject.GetComponent<Light>().intensity = 0.7f;
+
+        //Zoom out again
+        ChaserCamFront.gameObject.GetComponent<Camera>().fieldOfView = 48.0f;
+
+        //Wait
+        yield return new WaitForSeconds(1);
+
+        //Flicker 3
+        //SKybox flicker
+        RenderSettings.skybox = solidSkybox;
+        directionalLight.gameObject.GetComponent<Light>().intensity = 0.6f;
+
+        //Wait to flicker
+        yield return new WaitForSeconds(0.2f);
+
+        //Flicker skybox on 
+        RenderSettings.skybox = ussCallisterSkybx;
+        directionalLight.gameObject.GetComponent<Light>().intensity = 0.5f;
+
+        //Final zoom
+        ChaserCamFront.gameObject.GetComponent<Camera>().fieldOfView = 56.0f;
+
+        //Swap to Chaser back
+        //2ND SET OF FLICKERING
+
+        //Chaser front
+        ChaserCamFront.gameObject.SetActive(false);
+        ChaserCamBack.gameObject.SetActive(true);
+
+        //Wait to flicker
+        yield return new WaitForSeconds(0.3f);
+
+        //SKYBOX FLICKERING
+
+        //Flicker 1
+        //SKybox flicker
+        RenderSettings.skybox = solidSkybox;
+        asteroidField.gameObject.SetActive(false);
+        directionalLight.gameObject.GetComponent<Light>().intensity = 0.4f;
+
+        //Wait to flicker
+        yield return new WaitForSeconds(0.2f);
+
+        //Flicker skybox on 
+        RenderSettings.skybox = ussCallisterSkybx;
+        asteroidField.gameObject.SetActive(true);
+        directionalLight.gameObject.GetComponent<Light>().intensity = 0.3f;
+
+        //Zoom out
+        //Zoom out from Daly
+        ChaserCamBack.gameObject.GetComponent<Camera>().fieldOfView = 60.0f;
+
+        //Wait
+        yield return new WaitForSeconds(1);
+
+        //Flicker 2
+        //SKybox flicker
+        RenderSettings.skybox = solidSkybox;
+        asteroidField.gameObject.SetActive(false);
+        directionalLight.gameObject.GetComponent<Light>().intensity = 0.2f;
+
+        //Wait to flicker
+        yield return new WaitForSeconds(0.2f);
+
+        //Flicker skybox on 
+        RenderSettings.skybox = ussCallisterSkybx;
+        asteroidField.gameObject.SetActive(true);
+        directionalLight.gameObject.GetComponent<Light>().intensity = 0.1f;
+
+        //Zoom out again
+        ChaserCamBack.gameObject.GetComponent<Camera>().fieldOfView = 72.0f;
+
+        //Wait
+        yield return new WaitForSeconds(1);
+
+        //Flicker 3
+        //SKybox flicker
+        RenderSettings.skybox = solidSkybox;
+        asteroidField.gameObject.SetActive(false);
+
+        //Wait to flicker
+        yield return new WaitForSeconds(0.2f);
+
+        //Flicker skybox on 
+        RenderSettings.skybox = ussCallisterSkybx;
+        asteroidField.gameObject.SetActive(true);
+
+        //Final zoom
+        ChaserCamBack.gameObject.GetComponent<Camera>().fieldOfView = 90.0f;
+
+        yield return new WaitForSeconds(2);
+
+        //Turn off skybox
+        RenderSettings.skybox = solidSkybox;
+        asteroidField.gameObject.SetActive(false);
+
 
     }
 
